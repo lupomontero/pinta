@@ -1,5 +1,11 @@
 // https://github.com/cubiq/add-to-homescreen
-addToHomescreen();
+addToHomescreen({
+  modal: true,
+  mandatory: true,
+  lifespan: 0,
+  displayPace: 1,
+  maxDisplayCount: 0
+});
 
 var body = document.getElementsByTagName('body')[0];
 
@@ -138,9 +144,12 @@ canvas.addEventListener('touchcancel', handleCanvasTouchCancel, false);
 canvas.addEventListener('touchleave', handleCanvasTouchEnd, false);
 canvas.addEventListener('touchmove', handleCanvasTouchMove, false);
 palette.addEventListener('click', handlePaletteClick, false);
+// Also handle double clicks when picking colours, children do that!
+palette.addEventListener('dblclick', handlePaletteClick, false);
 clearBtn.addEventListener('click', handleClearBtnClick, false);
 
 
+// appCacheNanny stuff
 appCacheNanny.start({ checkInterval: 60 * 1000 });
 appCacheNanny.on('updateready', function () {
   var answer = confirm('Pinta has been updated! Refresh to load new version?');
