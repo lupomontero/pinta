@@ -1,2 +1,8 @@
 .DS_Store
 *.swp
+.grunt/
+dist/
+node_modules/*
+!node_modules/app
+www/bundle.js
+www/style.css
