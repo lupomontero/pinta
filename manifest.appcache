@@ -1,9 +1,11 @@
 CACHE MANIFEST
-# 2014-07-10 12:24am
+# 2014-07-10 13:09am
 
 CACHE:
 
 index.html
+addtohomescreen.js
+addtohomescreen.css
 appcache-nanny.js
 main.js
 style.css

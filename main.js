@@ -1,5 +1,15 @@
 var body = document.getElementsByTagName('body')[0];
 
+function iOS() {
+  return /iphone|ipod|ipad/gi.test(navigator.platform);
+}
+
+addToHomescreen();
+
+//if (iOS() && !navigator.standalone) {
+//  alert('not launched from home screen!');
+//}
+
 function getVieportSize() {
   var docEl = document.documentElement;
   return {
