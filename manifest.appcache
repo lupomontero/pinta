@@ -1,16 +1,16 @@
 CACHE MANIFEST
-# 2014-07-10 13:28
+# 2014-07-10 13:40
 
 CACHE:
 
+vendor/addtohomescreen.js
+vendor/addtohomescreen.css
+vendor/appcache-nanny.js
+img/favicon.ico
+img/icon-114.png
+img/icon-57.png
+img/icon-72.png
 index.html
-addtohomescreen.js
-addtohomescreen.css
-appcache-nanny.js
 main.js
 style.css
-favicon.ico
-icon-114.png
-icon-57.png
-icon-72.png
 

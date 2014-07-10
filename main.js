@@ -148,6 +148,7 @@ clearBtn.addEventListener('click', handleClearBtnClick, false);
 
 
 // appCacheNanny stuff
+appCacheNanny.set('loaderPath', 'vendor/appcache-loader.html');
 appCacheNanny.start({ checkInterval: 60 * 1000 });
 appCacheNanny.on('updateready', function () {
   var answer = confirm('Pinta has been updated! Refresh to load new version?');
