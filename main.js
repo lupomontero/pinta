@@ -41,9 +41,9 @@ function ongoingTouchIndexById(idToFind) {
   return -1;    // not found
 }
 
-function handleStart(evt) {
-  evt.preventDefault();
-  var touches = evt.changedTouches;
+function handleCanvasTouchStart(e) {
+  e.preventDefault();
+  var touches = e.changedTouches;
   var i, touch;
 
   for (i = 0; i < touches.length; i++) {
@@ -57,9 +57,9 @@ function handleStart(evt) {
   }
 }
 
-function handleMove(evt) {
-  evt.preventDefault();
-  var touches = evt.changedTouches;
+function handleCanvasTouchMove(e) {
+  e.preventDefault();
+  var touches = e.changedTouches;
 
   for (var i = 0; i < touches.length; i++) {
     var idx = ongoingTouchIndexById(touches[i].identifier);
@@ -77,9 +77,9 @@ function handleMove(evt) {
   }
 }
 
-function handleEnd(evt) {
-  evt.preventDefault();
-  var touches = evt.changedTouches;
+function handleCanvasTouchEnd(e) {
+  e.preventDefault();
+  var touches = e.changedTouches;
   var i, idx, touch;
 
   for (i = 0; i < touches.length; i++) {
@@ -100,22 +100,17 @@ function handleEnd(evt) {
   }
 }
 
-function handleCancel(evt) {
-  evt.preventDefault();
-  var touches = evt.changedTouches;
+function handleCanvasTouchCancel(e) {
+  e.preventDefault();
+  var touches = e.changedTouches;
   
   for (var i = 0; i < touches.length; i++) {
     ongoingTouches.splice(i, 1);  // remove it; we're done
   }
 }
 
-canvas.addEventListener('touchstart', handleStart, false);
-canvas.addEventListener('touchend', handleEnd, false);
-canvas.addEventListener('touchcancel', handleCancel, false);
-canvas.addEventListener('touchleave', handleEnd, false);
-canvas.addEventListener('touchmove', handleMove, false);
-
-palette.addEventListener('click', function (e) {
+// Set current colour and mark colour as active.
+function handlePaletteClick(e) {
   e.preventDefault();
   var target = e.target;
   currColour = target.style.backgroundColor;
@@ -124,9 +119,30 @@ palette.addEventListener('click', function (e) {
     links[i].innerHTML = '';
   }
   target.innerHTML = '·';
-}, false);
+}
 
-clearBtn.addEventListener('click', function (e) {
+// Clear the drawing by reloading the page.
+function handleClearBtnClick(e) {
   e.preventDefault();
   window.location.reload();
-}, false);
+}
+
+
+// Hook up event listeners
+canvas.addEventListener('touchstart', handleCanvasTouchStart, false);
+canvas.addEventListener('touchend', handleCanvasTouchEnd, false);
+canvas.addEventListener('touchcancel', handleCanvasTouchCancel, false);
+canvas.addEventListener('touchleave', handleCanvasTouchEnd, false);
+canvas.addEventListener('touchmove', handleCanvasTouchMove, false);
+palette.addEventListener('click', handlePaletteClick, false);
+clearBtn.addEventListener('click', handleClearBtnClick, false);
+
+
+appCacheNanny.start({ checkInterval: 60 * 1000 });
+appCacheNanny.on('updateready', function () {
+  var answer = confirm('Pinta has been updated! Refresh to load new version?');
+  if (answer) {
+    window.location.reload();
+  }
+});
+
