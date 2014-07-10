@@ -1,0 +1,37 @@
+* { margin: 0; padding: 0; }
+
+body {
+  font-family: sans-serif;
+}
+
+#clear {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+}
+
+#palette {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#palette a {
+  margin: 0;
+  width: 12.5%;
+  height: 40px;
+  float: left;
+  font-size: 80px;
+  line-height: 0.5em;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.5);
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5),
+               1px -1px 3px rgba(255, 255, 255, 0.5),
+               -1px 1px 3px rgba(255, 255, 255, 0.5),
+               -1px -1px 3px rgba(255, 255, 255, 0.5);
+}
