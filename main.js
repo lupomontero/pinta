@@ -1,14 +1,7 @@
-var body = document.getElementsByTagName('body')[0];
-
-function iOS() {
-  return /iphone|ipod|ipad/gi.test(navigator.platform);
-}
-
+// https://github.com/cubiq/add-to-homescreen
 addToHomescreen();
 
-//if (iOS() && !navigator.standalone) {
-//  alert('not launched from home screen!');
-//}
+var body = document.getElementsByTagName('body')[0];
 
 function getVieportSize() {
   var docEl = document.documentElement;
