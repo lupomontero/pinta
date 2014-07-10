@@ -144,8 +144,6 @@ canvas.addEventListener('touchcancel', handleCanvasTouchCancel, false);
 canvas.addEventListener('touchleave', handleCanvasTouchEnd, false);
 canvas.addEventListener('touchmove', handleCanvasTouchMove, false);
 palette.addEventListener('click', handlePaletteClick, false);
-// Also handle double clicks when picking colours, children do that!
-palette.addEventListener('dblclick', handlePaletteClick, false);
 clearBtn.addEventListener('click', handleClearBtnClick, false);
 
 
