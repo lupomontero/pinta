@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# timestamp: 1405030324205
+# timestamp: 1405030607934
 
 CACHE:
 
@@ -8,6 +8,7 @@ img/icon-114.png
 img/icon-57.png
 img/icon-72.png
 index.html
+appcache-loader.html
 bundle.js
 style.css
 
